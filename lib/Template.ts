@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events'
 import { FabrixApp } from '@fabrix/fabrix'
 import { FabrixGeneric } from '@fabrix/fabrix/dist/common'
 
@@ -5,17 +6,17 @@ import { FabrixGeneric } from '@fabrix/fabrix/dist/common'
 import * as ejs from 'ejs'
 
 export class Template extends FabrixGeneric {
-  ejs
-  methods
+  private _app: FabrixApp
+  public ejs
 
   constructor (app: FabrixApp) {
+    if (!(app instanceof EventEmitter)) {
+      throw new Error('The "app" argument must be of type EventEmitter')
+    }
     super(app)
+    this._app = app
 
     Object.defineProperties(this, {
-      app: {
-        enumerable: false,
-        value: app
-      },
       ejs: {
         enumerable: false,
         value: function (input, data, options) {
@@ -27,6 +28,27 @@ export class Template extends FabrixGeneric {
         writable: true
       }
     })
+
+    this.app.emit(`controller:${this.id}:constructed`, this)
+  }
+
+  /**
+   * Reference to i18n
+   */
+  get __ () {
+    if (this.app.__) {
+      return this.app.__
+    }
+    else {
+      throw new Error('Missing spool-i18n, make sure it is included in app.main.spools')
+    }
+  }
+
+  /**
+   * Get the Fabrix App Instance that Template was constructed with
+   */
+  get app(): FabrixApp {
+    return this._app
   }
 
   /**

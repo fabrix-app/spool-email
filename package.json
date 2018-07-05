@@ -1,6 +1,6 @@
 {
   "name": "@fabrix/spool-email",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Spool - Emails",
   "homepage": "https://fabrix.app",
   "author": {
@@ -41,6 +41,7 @@
     "@fabrix/fabrix": "^1.0.3",
     "@fabrix/lint": "^1.0.0-alpha.3",
     "@fabrix/spool-i18n": "^1.0.0",
+    "@fabrix/spool-router": "^1.0.0",
     "@types/node": "~10.3.4",
     "lodash": "^4.17.4",
     "mocha": "^5",
