@@ -51,7 +51,7 @@ export class Email extends FabrixGeneric {
         value: function(method, subject, data, send) {
           return Promise.resolve()
             .then(() => {
-              if (!this.app.templates[this.name] && !this.app.templates[this.name][this.method]) {
+              if (!this.app.templates[this.name] && !this.app.templates[this.name][method]) {
                 throw new Error(`Template ${this.name}.${method} not found`)
               }
               // Get the Email HTML
