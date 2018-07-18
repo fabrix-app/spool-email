@@ -1,6 +1,6 @@
 {
   "name": "@fabrix/spool-email",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Spool - Emails",
   "homepage": "https://fabrix.app",
   "author": {
@@ -38,10 +38,10 @@
     "striptags": "^3.1.0"
   },
   "devDependencies": {
-    "@fabrix/fabrix": "^1.0.3",
+    "@fabrix/fabrix": "^1.1.0",
     "@fabrix/lint": "^1.0.0-alpha.3",
-    "@fabrix/spool-i18n": "^1.0.0",
-    "@fabrix/spool-router": "^1.0.0",
+    "@fabrix/spool-i18n": "^1.1.0",
+    "@fabrix/spool-router": "^1.1.0",
     "@types/node": "~10.3.4",
     "lodash": "^4.17.4",
     "mocha": "^5",
@@ -55,8 +55,8 @@
     "typescript": "~2.8.1"
   },
   "peerDependencies": {
-    "@fabrix/fabrix": "^1.0.3",
-    "@fabrix/spool-i18n": "^1.0.0"
+    "@fabrix/fabrix": "^1.1.0",
+    "@fabrix/spool-i18n": "^1.1.0"
   },
   "engines": {
     "node": ">= 7.6.0"
