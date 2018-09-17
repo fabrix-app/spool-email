@@ -4,7 +4,6 @@ import { FabrixGeneric } from '@fabrix/fabrix/dist/common'
 import * as stripTags from 'striptags'
 
 export class Email extends FabrixGeneric {
-  private _app: FabrixApp
   public compose
 
   constructor (app: FabrixApp) {
@@ -12,7 +11,6 @@ export class Email extends FabrixGeneric {
       throw new Error('The "app" argument must be of type EventEmitter')
     }
     super(app)
-    this._app = app
 
     Object.defineProperties(this, {
       /**
@@ -83,13 +81,6 @@ export class Email extends FabrixGeneric {
     else {
       throw new Error('Missing spool-i18n, make sure it is included in app.main.spools')
     }
-  }
-
-  /**
-   * Get the Fabrix App Instance that Template was constructed with
-   */
-  get app(): FabrixApp {
-    return this._app
   }
 
   /**
