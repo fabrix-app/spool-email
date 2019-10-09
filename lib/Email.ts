@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events'
 import { FabrixApp } from '@fabrix/fabrix'
 import { FabrixGeneric } from '@fabrix/fabrix/dist/common'
-import * as stripTags from 'striptags'
+import stripTags from 'striptags'
 
 export class Email extends FabrixGeneric {
   public compose
@@ -68,7 +68,7 @@ export class Email extends FabrixGeneric {
       }
     })
 
-    this.app.emit(`controller:${this.id}:constructed`, this)
+    this.app.emit(`email:${this.id}:constructed`, this)
   }
 
   /**
