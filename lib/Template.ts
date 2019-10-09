@@ -3,10 +3,9 @@ import { FabrixApp } from '@fabrix/fabrix'
 import { FabrixGeneric } from '@fabrix/fabrix/dist/common'
 
 // https://www.npmjs.com/package/ejs
-import * as ejs from 'ejs'
+import ejs from 'ejs'
 
 export class Template extends FabrixGeneric {
-  private _app: FabrixApp
   public ejs
 
   constructor (app: FabrixApp) {
@@ -14,7 +13,6 @@ export class Template extends FabrixGeneric {
       throw new Error('The "app" argument must be of type EventEmitter')
     }
     super(app)
-    this._app = app
 
     Object.defineProperties(this, {
       ejs: {
@@ -29,7 +27,7 @@ export class Template extends FabrixGeneric {
       }
     })
 
-    this.app.emit(`controller:${this.id}:constructed`, this)
+    this.app.emit(`template:${this.id}:constructed`, this)
   }
 
   /**
@@ -42,13 +40,6 @@ export class Template extends FabrixGeneric {
     else {
       throw new Error('Missing spool-i18n, make sure it is included in app.main.spools')
     }
-  }
-
-  /**
-   * Get the Fabrix App Instance that Template was constructed with
-   */
-  get app(): FabrixApp {
-    return this._app
   }
 
   /**

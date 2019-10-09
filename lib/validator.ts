@@ -1,4 +1,4 @@
-import * as joi from 'joi'
+import joi from 'joi'
 import { emailConfig } from './schemas/emailConfig'
 
 export const Validator = {
